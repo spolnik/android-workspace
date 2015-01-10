@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.wordpress.nprogramming.utilitylibrary.RunningServiceWrapper;
+
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -95,24 +97,6 @@ public class MainActivity extends Activity {
                     serviceDetailFragment.getClass().getSimpleName());
 
             fragmentTransaction.commit();
-        }
-
-        private class RunningServiceWrapper {
-
-            private final ActivityManager.RunningServiceInfo info;
-
-            public RunningServiceWrapper(ActivityManager.RunningServiceInfo info) {
-                this.info = info;
-            }
-
-            public ActivityManager.RunningServiceInfo getInfo() {
-                return info;
-            }
-
-            @Override
-            public String toString() {
-                return info.service.flattenToShortString();
-            }
         }
     }
 }
